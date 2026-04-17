@@ -4,7 +4,7 @@ int monedas = 50;
 monedas = monedas + 25;
 monedas = monedas - 10;
 
-System.Out.println("Total de monedas " + monedas);
+System.out.println("Total de monedas " + monedas);
 
 }
 }
