@@ -9,9 +9,11 @@ public class Dragon {
         int vidaHeroe = 100;
         int pociones = 3;
         int opcion;
+        boolean dragonVivo = vidaDragon > 0;
+        boolean combateActivo = dragonVivo && vidaHeroe > 0;
         
 
-        while (vidaDragon > 0 && vidaHeroe > 0) {
+        while (combateActivo) {
             int dañoHeroe = generador.nextInt(16) + 15;
             int dañoDragon = generador.nextInt(16) + 15;
             System.out.println("Elige que deseas hacer 1.Atacar 2.Curarte ");
@@ -29,7 +31,9 @@ public class Dragon {
                  
             }
             else {
-                break;
+                combateActivo = false;
+                dragonVivo = false;
+             
             }
 
             } else if (opcion == 2 && pociones > 0) {
@@ -45,12 +49,11 @@ public class Dragon {
                 }
             
             
-            
-            
                System.out.println("HEROE : " + vidaHeroe + "|| Dragon: " + vidaDragon + " ||Pociones restantes " + pociones);
+                combateActivo = vidaDragon > 0 && vidaHeroe > 0;
 
         }
-        if (vidaDragon <= 0) {
+        if (!dragonVivo) {
             System.out.println("¡Has derrotado al dragón y salvado el reino! Te has quedado con : " + vidaHeroe + " de vida");
 
         } else if (vidaHeroe <= 0) {
