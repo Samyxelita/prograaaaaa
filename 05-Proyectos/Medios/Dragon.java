@@ -7,7 +7,7 @@ public class Dragon {
         Scanner lector = new Scanner(System.in);
         int vidaDragon = 100;
         int vidaHeroe = 100;
-        int pociones = 3;
+        int estamina = 50;
         int opcion;
         boolean dragonVivo = vidaDragon > 0;
         boolean combateActivo = dragonVivo && vidaHeroe > 0;
@@ -21,35 +21,42 @@ public class Dragon {
             
               if (opcion == 1) {
 
+                if (estamina >= 10) {
+                estamina = estamina -10;
                 vidaDragon = vidaDragon - dañoHeroe;
-
                 System.out.println("Le has hecho:" + dañoHeroe + " de dano!!");
-                
-                if(vidaDragon > 0){
-                 vidaHeroe = vidaHeroe - dañoDragon;
-                 System.out.println("El dragon te ha hecho:" + dañoDragon + " de dano!!");
-                 
+                }
+                else {
+                    System.out.println("Estamina insuficiente");
+                }                 
             }
-            else {
-                combateActivo = false;
-                dragonVivo = false;
-             
-            }
+             else if (opcion == 2 ) {
 
-            } else if (opcion == 2 && pociones > 0) {
+                 if (estamina >= 15) {
+                    estamina = estamina -15;
                     vidaHeroe = vidaHeroe + 20;
-                    pociones = pociones - 1;
                     System.out.println("Curado! Vida restante: " + vidaHeroe);
                     System.out.println("Vida restante del dragon:" + vidaDragon);
 }
-                
                 else {
-                    System.out.println("No tienes mas pociones ");
+                    System.out.println("Estamina insuficiente ");
 
                 }
+            }
+                  
+                if(vidaDragon <= 0){
+                    dragonVivo = false;
+                }
+                else {
+                       vidaHeroe = vidaHeroe - dañoDragon;
+                 System.out.println("El dragon te ha hecho:" + dañoDragon + " de dano!!");
+                }
             
-            
-               System.out.println("HEROE : " + vidaHeroe + "|| Dragon: " + vidaDragon + " ||Pociones restantes " + pociones);
+            estamina += 5; 
+            if (estamina > 50) {
+             estamina = 50;
+            }
+               System.out.println("HEROE : " + vidaHeroe + "|| Dragon: " + vidaDragon + " ||Estamina restante " + estamina);
                 combateActivo = vidaDragon > 0 && vidaHeroe > 0;
 
         }
