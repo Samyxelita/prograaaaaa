@@ -11,57 +11,54 @@ public class Dragon {
         int opcion;
         boolean dragonVivo = vidaDragon > 0;
         boolean combateActivo = dragonVivo && vidaHeroe > 0;
-        
 
         while (combateActivo) {
             int dañoHeroe = generador.nextInt(16) + 15;
             int dañoDragon = generador.nextInt(16) + 15;
             System.out.println("Elige que deseas hacer 1.Atacar 2.Curarte ");
             opcion = lector.nextInt();
-            
-              if (opcion == 1) {
+
+            if (opcion == 1) {
 
                 if (estamina >= 10) {
-                estamina = estamina -10;
-                vidaDragon = vidaDragon - dañoHeroe;
-                System.out.println("Le has hecho:" + dañoHeroe + " de dano!!");
-                }
-                else {
+                    estamina = estamina - 10;
+                    vidaDragon = vidaDragon - dañoHeroe;
+                    System.out.println("Le has hecho:" + dañoHeroe + " de dano!!");
+                } else {
                     System.out.println("Estamina insuficiente");
-                }                 
-            }
-             else if (opcion == 2 ) {
+                }
+            } else if (opcion == 2) {
 
-                 if (estamina >= 15) {
-                    estamina = estamina -15;
+                if (estamina >= 15) {
+                    estamina = estamina - 15;
                     vidaHeroe = vidaHeroe + 20;
                     System.out.println("Curado! Vida restante: " + vidaHeroe);
                     System.out.println("Vida restante del dragon:" + vidaDragon);
-}
-                else {
+                } else {
                     System.out.println("Estamina insuficiente ");
 
                 }
             }
-                  
-                if(vidaDragon <= 0){
-                    dragonVivo = false;
-                }
-                else {
-                       vidaHeroe = vidaHeroe - dañoDragon;
-                 System.out.println("El dragon te ha hecho:" + dañoDragon + " de dano!!");
-                }
-            
-            estamina += 5; 
-            if (estamina > 50) {
-             estamina = 50;
+
+            if (vidaDragon <= 0) {
+                dragonVivo = false;
+            } else {
+                vidaHeroe = vidaHeroe - dañoDragon;
+                System.out.println("El dragon te ha hecho:" + dañoDragon + " de dano!!");
             }
-               System.out.println("HEROE : " + vidaHeroe + "|| Dragon: " + vidaDragon + " ||Estamina restante " + estamina);
-                combateActivo = vidaDragon > 0 && vidaHeroe > 0;
+
+            estamina += 5;
+            if (estamina > 50) {
+                estamina = 50;
+            }
+            System.out
+                    .println("HEROE : " + vidaHeroe + "|| Dragon: " + vidaDragon + " ||Estamina restante " + estamina);
+            combateActivo = vidaDragon > 0 && vidaHeroe > 0;
 
         }
         if (!dragonVivo) {
-            System.out.println("¡Has derrotado al dragón y salvado el reino! Te has quedado con : " + vidaHeroe + " de vida");
+            System.out.println(
+                    "¡Has derrotado al dragón y salvado el reino! Te has quedado con : " + vidaHeroe + " de vida");
 
         } else if (vidaHeroe <= 0) {
             System.out.println("Has muerto... el reino arde en llamas.");
