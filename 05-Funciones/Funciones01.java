@@ -5,6 +5,7 @@ public class Funciones01 {
     public static void main(String[] args) {
         int vidaEnemigo = 120;
         vidaEnemigo -= calcularDanoFinal(5, 15);
+        System.out.println(sumar(1, 1));
 
         System.out.print("La vida del enemigo es " + vidaEnemigo);
 
@@ -33,5 +34,12 @@ public class Funciones01 {
         return danoFinal;
 
     }
+
+    public static int sumar(int a, int b) {
+        return a + b;
+    }
+
+    public static void Atacar(int dano)
+
 
 }
