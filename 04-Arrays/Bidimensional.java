@@ -1,4 +1,4 @@
-public class Notas {
+public class Bidimensional {
     public static void main(String[] args) {
         int matriz[][] = new int[2][2];
 

@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 public class MiniCalculadora {
-    public static void main (String[] args) {
+    public static void main(String[] args) {
         Scanner lector = new Scanner(System.in);
         int num1;
         int num2;
@@ -10,7 +10,7 @@ public class MiniCalculadora {
         System.out.println("Primer numero: ");
         num1 = lector.nextInt();
 
-         System.out.println("Segundo numero: ");
+        System.out.println("Segundo numero: ");
         num2 = lector.nextInt();
 
         lector.nextLine();
@@ -18,7 +18,7 @@ public class MiniCalculadora {
         System.out.println("Elige una operacion : + - * /");
         String operacion = lector.nextLine();
 
-       if (operacion.equals("+")) {
+        if (operacion.equals("+")) {
             resultado = num1 + num2;
         } else if (operacion.equals("-")) {
             resultado = num1 - num2;
@@ -28,7 +28,6 @@ public class MiniCalculadora {
             resultado = num1 / num2;
         }
 
-        
         System.out.println("El resultado es " + resultado);
 
     }
