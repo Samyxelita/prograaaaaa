@@ -12,7 +12,7 @@ public class Heroe {
 
     public void atacar(Dragon dragon) {
         if (hayEstamina(10)) {
-            dragon.setVida(-10);
+            dragon.recibirDano(10);
         }
         recuperarEstamina(5);
     }
@@ -23,7 +23,7 @@ public class Heroe {
 
     public void curar() {
         if (hayEstamina(15)) {
-            this.vida += 20;
+            this.vida = Math.min(100, this.vida + 20);
         }
         recuperarEstamina(5);
     }
@@ -36,28 +36,8 @@ public class Heroe {
         return vida > 0;
     }
 
-    private boolean hayEstamina(int estamina) {
-        if (this.estamina > estamina) {
-            this.estamina -= estamina;
-            return true;
-        } else {
-            System.out.println("Sin estamina disponible");
-            return false;
-        }
-
-    }
-
-    private void recuperarEstamina(int estamina) {
-        this.estamina += estamina;
-    }
-
-    public void setVida(int vida) {
-        if (this.vida < 0) {
-            this.vida = 0;
-        } else {
-            this.vida += vida;
-        }
-
+    public void recibirDano(int danoRecibido) {
+        this.vida = Math.max(0, this.vida - danoRecibido);
     }
 
     public String getNombre() {
@@ -70,6 +50,21 @@ public class Heroe {
 
     public int getEstamina() {
         return estamina;
+    }
+
+    private void recuperarEstamina(int estamina) {
+        this.estamina = Math.min(50, this.estamina + estamina);
+    }
+
+    private boolean hayEstamina(int estamina) {
+        if (this.estamina >= estamina) {
+            this.estamina -= estamina;
+            return true;
+        } else {
+            System.out.println("Sin estamina disponible");
+            return false;
+        }
+
     }
 
 }
