@@ -23,21 +23,20 @@ public class Juego {
                 case 3 -> heroe.descansar();
             }
             if (dragon.estaVivo()) {
+
                 dragon.contraAtaque(heroe);
+
+                if (!heroe.estaVivo()) {
+                    dragon.celebra(heroe);
+                } else {
+                    this.mostrarResumen();
+                }
+
             } else {
                 heroe.celebra(dragon);
-
             }
-
-            if (!heroe.estaVivo()) {
-                dragon.celebra(heroe);
-
-            }
-
-            this.mostrarResumen();
 
         }
-
     }
 
     private void mostrarResumen() {
