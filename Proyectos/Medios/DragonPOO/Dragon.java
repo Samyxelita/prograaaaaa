@@ -15,20 +15,15 @@ public class Dragon {
     }
 
     public void contraAtaque(Heroe heroe) {
-        heroe.setVida(-10);
+        heroe.recibirDano(10);
     }
 
     public void celebra(Heroe heroe) {
         System.out.println("Soy el dragon " + nombre + "y mate a " + heroe.getNombre());
     }
 
-    public void setVida(int vida) {
-        if (this.vida < 0) {
-            this.vida = 0;
-        } else {
-            this.vida += vida;
-        }
-
+    public void recibirDano(int danoRecibido) {
+        this.vida = Math.max(0, this.vida - danoRecibido);
     }
 
     public String getNombre() {
