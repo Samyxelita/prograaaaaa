@@ -7,8 +7,8 @@ public class Juego {
     private Menu menu;
 
     public Juego() {
-        heroe = new Heroe("Gladiador");
-        dragon = new Dragon("Shenlong");
+        heroe = new Heroe("Gladiador", 100);
+        dragon = new Dragon("Shenlong", 150);
         menu = new Menu();
     }
 
@@ -22,24 +22,32 @@ public class Juego {
                 case 2 -> heroe.curar();
                 case 3 -> heroe.descansar();
             }
-
             if (dragon.estaVivo()) {
                 dragon.contraAtaque(heroe);
             } else {
                 heroe.celebra(dragon);
+
             }
 
             if (!heroe.estaVivo()) {
                 dragon.celebra(heroe);
+
             }
+
+            this.mostrarResumen();
 
         }
 
     }
 
+    private void mostrarResumen() {
+        System.out.println("HEROE: " + heroe.getVida() + " DRAGON: " + dragon.getVida() + " Estamina disponible "
+                + heroe.getEstamina());
+    }
+
     private boolean hayGanador() {
 
-        return dragon.estaVivo() && heroe.estaVivo();
+        return !dragon.estaVivo() || !heroe.estaVivo();
 
     }
 

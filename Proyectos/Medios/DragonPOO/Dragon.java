@@ -5,8 +5,9 @@ public class Dragon {
     private int vida;
     private String nombre;
 
-    public Dragon(String nombre) {
+    public Dragon(String nombre, int vida) {
         this.nombre = nombre;
+        this.vida = vida;
     }
 
     public boolean estaVivo() {
@@ -22,7 +23,7 @@ public class Dragon {
     }
 
     public void setVida(int vida) {
-        if (vida < 0) {
+        if (this.vida < 0) {
             this.vida = 0;
         } else {
             this.vida += vida;
@@ -32,6 +33,10 @@ public class Dragon {
 
     public String getNombre() {
         return nombre;
+    }
+
+    public int getVida() {
+        return vida;
     }
 
 }

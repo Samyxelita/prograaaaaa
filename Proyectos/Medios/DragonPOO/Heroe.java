@@ -1,12 +1,13 @@
 package DragonPOO;
 
 public class Heroe {
-    private int vida = 100;
+    private int vida;
     private int estamina = 50;
     private String nombre;
 
-    public Heroe(String nombre) {
+    public Heroe(String nombre, int vida) {
         this.nombre = nombre;
+        this.vida = vida;
     }
 
     public void atacar(Dragon dragon) {
@@ -32,11 +33,12 @@ public class Heroe {
     }
 
     public boolean estaVivo() {
-        return vida <= 0;
+        return vida > 0;
     }
 
     private boolean hayEstamina(int estamina) {
-        if (estamina > this.estamina) {
+        if (this.estamina > estamina) {
+            this.estamina -= estamina;
             return true;
         } else {
             System.out.println("Sin estamina disponible");
@@ -50,15 +52,24 @@ public class Heroe {
     }
 
     public void setVida(int vida) {
-        if (vida < 0) {
+        if (this.vida < 0) {
             this.vida = 0;
         } else {
             this.vida += vida;
         }
+
     }
 
     public String getNombre() {
         return nombre;
+    }
+
+    public int getVida() {
+        return vida;
+    }
+
+    public int getEstamina() {
+        return estamina;
     }
 
 }
