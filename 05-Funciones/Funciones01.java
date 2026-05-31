@@ -39,7 +39,4 @@ public class Funciones01 {
         return a + b;
     }
 
-    public static void Atacar(int dano)
-
-
 }

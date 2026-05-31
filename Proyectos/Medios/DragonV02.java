@@ -11,6 +11,7 @@ public class DragonV02 {
         int estamina = 50;
         int costeAtacar = 15;
         int costeDanar = 10;
+
         boolean combateActivo = vidaHeroe > 0 && vidaDragon > 0;
 
         while (combateActivo) {
@@ -102,7 +103,6 @@ public class DragonV02 {
 
     public static int contraAtaque(int vidaHeroe, int dañoDragon) {
         return vidaHeroe - dañoDragon;
-
     }
 
     public static int Atacar(int vidaDragon, int dañoHeroe) {
