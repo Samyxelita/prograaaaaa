@@ -27,8 +27,8 @@ public class Heroe {
         recuperarEstamina(5);
     }
 
-    public void celebra() {
-        System.out.println("Soy el heroe " + nombre + " y he ganado!!!");
+    public void celebra(Dragon dragon) {
+        System.out.println("Soy el heroe " + nombre + " y he matado a " + dragon.getNombre());
     }
 
     public boolean estaVivo() {
@@ -47,6 +47,18 @@ public class Heroe {
 
     private void recuperarEstamina(int estamina) {
         this.estamina += estamina;
+    }
+
+    public void setVida(int vida) {
+        if (vida < 0) {
+            this.vida = 0;
+        } else {
+            this.vida += vida;
+        }
+    }
+
+    public String getNombre() {
+        return nombre;
     }
 
 }

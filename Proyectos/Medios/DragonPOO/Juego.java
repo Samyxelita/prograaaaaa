@@ -26,11 +26,11 @@ public class Juego {
             if (dragon.estaVivo()) {
                 dragon.contraAtaque(heroe);
             } else {
-                heroe.celebra();
+                heroe.celebra(dragon);
             }
 
             if (!heroe.estaVivo()) {
-                dragon.celebra();
+                dragon.celebra(heroe);
             }
 
         }
