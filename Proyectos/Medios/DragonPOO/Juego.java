@@ -20,6 +20,7 @@ public class Juego {
             switch (menu.opcionElegida()) {
                 case 1 -> heroe.atacar(dragon);
                 case 2 -> heroe.curar();
+                case 3 -> heroe.descansar();
             }
 
             if (dragon.estaVivo()) {
