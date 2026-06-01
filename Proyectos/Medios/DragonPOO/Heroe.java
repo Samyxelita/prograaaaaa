@@ -1,5 +1,7 @@
 package DragonPOO;
 
+import java.util.Random;
+
 public class Heroe extends Personaje {
 
     private int estamina;
@@ -11,7 +13,9 @@ public class Heroe extends Personaje {
 
     public void atacar(Dragon dragon) {
         if (hayEstamina(10)) {
-            dragon.recibirDano(10);
+            Random random = new Random();
+            int dano = random.nextInt(16) + 10;
+            dragon.recibirDano(dano);
         }
         recuperarEstamina(5);
     }
