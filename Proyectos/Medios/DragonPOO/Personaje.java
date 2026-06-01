@@ -1,6 +1,6 @@
 package DragonPOO;
 
-public class Personaje {
+public abstract class Personaje {
     protected int vida;
     protected String nombre;
 
@@ -8,6 +8,8 @@ public class Personaje {
         this.nombre = nombre;
         this.vida = vida;
     }
+
+    public abstract void ataquePrincipal(Personaje personaje);
 
     public boolean estaVivo() {
         return vida > 0;

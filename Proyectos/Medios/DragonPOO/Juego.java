@@ -18,13 +18,13 @@ public class Juego {
 
             menu.mostrarOpciones();
             switch (menu.opcionElegida()) {
-                case 1 -> heroe.atacar(dragon);
+                case 1 -> heroe.ataquePrincipal(dragon);
                 case 2 -> heroe.curar();
                 case 3 -> heroe.descansar();
             }
             if (dragon.estaVivo()) {
 
-                dragon.contraAtaque(heroe);
+                dragon.ataquePrincipal(heroe);
 
                 if (!heroe.estaVivo()) {
                     dragon.celebra(heroe);

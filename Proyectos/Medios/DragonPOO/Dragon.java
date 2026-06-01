@@ -8,7 +8,7 @@ public class Dragon extends Personaje {
         super(nombre, vida);
     }
 
-    public void contraAtaque(Heroe heroe) {
+    public void ataquePrincipal(Personaje personaje) {
         Random random = new Random();
         int danoBase = random.nextInt(11) + 10;
         if (this.vida < 45) {
@@ -16,7 +16,7 @@ public class Dragon extends Personaje {
                     "¡El dragon " + this.nombre + " entra en estado de Furia! Dano de contraataque duplicado.");
             danoBase *= 2;
         }
-        heroe.recibirDano(danoBase);
+        personaje.recibirDano(danoBase);
     }
 
 }

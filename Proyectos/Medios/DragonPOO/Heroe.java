@@ -11,11 +11,11 @@ public class Heroe extends Personaje {
         this.estamina = 50;
     }
 
-    public void atacar(Dragon dragon) {
+    public void ataquePrincipal(Personaje personaje) {
         if (hayEstamina(10)) {
             Random random = new Random();
             int dano = random.nextInt(16) + 10;
-            dragon.recibirDano(dano);
+            personaje.recibirDano(dano);
         }
         recuperarEstamina(5);
     }
