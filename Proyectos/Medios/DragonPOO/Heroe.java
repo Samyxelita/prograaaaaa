@@ -1,13 +1,12 @@
 package DragonPOO;
 
-public class Heroe {
-    private int vida;
-    private int estamina = 50;
-    private String nombre;
+public class Heroe extends Personaje {
+
+    private int estamina;
 
     public Heroe(String nombre, int vida) {
-        this.nombre = nombre;
-        this.vida = vida;
+        super(nombre, vida);
+        this.estamina = 50;
     }
 
     public void atacar(Dragon dragon) {
@@ -26,26 +25,6 @@ public class Heroe {
             this.vida = Math.min(100, this.vida + 20);
         }
         recuperarEstamina(5);
-    }
-
-    public void celebra(Dragon dragon) {
-        System.out.println("Soy el heroe " + nombre + " y he matado a " + dragon.getNombre());
-    }
-
-    public boolean estaVivo() {
-        return vida > 0;
-    }
-
-    public void recibirDano(int danoRecibido) {
-        this.vida = Math.max(0, this.vida - danoRecibido);
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public int getVida() {
-        return vida;
     }
 
     public int getEstamina() {
